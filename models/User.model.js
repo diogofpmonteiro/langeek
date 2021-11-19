@@ -1,18 +1,14 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
-    },
-    password: String,
-  },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
-  }
-);
+const userSchema = new Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  languagesISpeak: { type: [String], required: true },
+  languagesIWantToLearn: { type: [String], required: true },
+  socialMediaLink: { type: String, required: true },
+  profilePictureURL: { type: String, required: true },
+  userPosts: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }] },
+});
 
 const User = model("User", userSchema);
 

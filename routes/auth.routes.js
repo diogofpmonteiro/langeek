@@ -7,4 +7,12 @@ router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
+// POST /signup
+
+// GET /login
+
+// POST /login
+
+// GET /logout
+
 module.exports = router;
