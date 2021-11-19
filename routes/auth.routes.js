@@ -8,11 +8,24 @@ router.get("/signup", (req, res) => {
 });
 
 // POST /signup
+router.post('/signup', (req, res) => {
+
+});
 
 // GET /login
+router.get('/login', (req, res) => {
+    res.render("auth/login")
+});
 
 // POST /login
+router.post('/login', (req, res) => {
+
+});
 
 // GET /logout
+router.get('/logout', (req, res) => {
+
+});
+
 
 module.exports = router;
