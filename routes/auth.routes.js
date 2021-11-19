@@ -1,10 +1,11 @@
 const router = require("express").Router();
+const languages = require('languages');
 
 // AUTH ROUTES GO HERE:
 
 // GET  /signup
 router.get("/signup", (req, res) => {
-  res.render("auth/signup");
+  res.render("auth/signup", {languages});
 });
 
 // POST /signup

@@ -1,0 +1,36 @@
+<form class="row g-3">
+  <div class="col-md-6">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" name="username">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Languages I speak</label>
+    <input type="text" class="form-control" name="languagesISpeak" placeholder="English...">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Languages I want to learn</label>
+    <input type="text" class="form-control" name="languagesIWantToLearn" placeholder="Chinese...">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">How I want people to contact me</label>
+    <input type="text" class="form-control" name="socialMediaLink" placeholder="twitter.com/example">
+  </div>
+  <div class="col-md-4">
+<select class="form-select" aria-label="Default select example" multiple>
+  <option>{{!-- HANDLEBARS --}}</option>
+</select>
+
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Profile Picture</label>
+    <input type="file" class="form-control" name="profilePicture">
+  </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
