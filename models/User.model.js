@@ -7,7 +7,7 @@ const userSchema = new Schema({
   languagesIWantToLearn: { type: [String], required: true },
   socialMediaLink: { type: String, required: true },
   profilePictureURL: { type: String, required: true },
-  userPosts: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }] },
+  userPosts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
 });
 
 const User = model("User", userSchema);
