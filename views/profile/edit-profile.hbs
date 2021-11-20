@@ -1,0 +1,40 @@
+<form class="row g-3" action="/edit-user" method="POST">
+  <div class="col-md-6">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" required>
+  </div>
+  {{!-- <div class="col-md-6">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" required>
+  </div> --}}
+  <div class="col-md-4">
+    <label class="form-label">Languages I speak</label>
+    <select class="form-select" name="languagesISpeak" multiple required>
+    {{#each languages}}
+    <option>{{this}}</option>
+    {{/each}}
+  </select>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Languages I want to learn</label>
+    <select class="form-select" name="languagesIWantToLearn" multiple required>
+    {{#each languages}}
+    <option>{{this}}</option>
+    {{/each}}
+  </select>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">How I want people to contact me</label>
+    <input type="text" class="form-control" name="socialMediaLink" placeholder="twitter.com/example" required>
+  </div>
+  
+  <div class="col-md-2">
+    <label class="form-label">Profile Picture</label>
+    <input type="file" class="form-control" name="profilePictureURL" required>
+  </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
