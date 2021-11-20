@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 /* GET home page Also renders the search form */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index", {user: req.session.user});
 });
 
 // GET search=? query

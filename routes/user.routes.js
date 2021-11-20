@@ -16,11 +16,10 @@ router.get("/:userId", isLoggedIn, async (req, res) => {
 });
 
 // GET /:userId/edit-user
-router.post("/:userId/edit-user", isLoggedIn, async (req, res) => {
+router.get("/:userId/edit-user", isLoggedIn, async (req, res) => {
   try {
     const userId = req.params.userId;
     const foundUser = await User.findById(userId);
-
     res.render("profile/user-profile", { foundUser });
   } catch (error) {
     console.log(error);
