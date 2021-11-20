@@ -26,6 +26,7 @@ router.post('/create-post', fileUploader.single("postPicture"), async (req, res)
             postPicture: fileOnCloudinary,
             author: req.session.user._id
           });
+       await User.findByIdAndUpdate(req.session.user._id, {$push: {userPosts:createdPost._id}})   
     
     res.redirect('/')
     } catch (error) {
