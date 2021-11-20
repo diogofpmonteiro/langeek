@@ -13,6 +13,27 @@ router.get('/create-post', (req, res) => {
 
 
 // POST /create-post
+router.post('/create-post', fileUploader.single("postPicture"), async (req, res) => {
+    try {
+
+        const { title, description, languageTag} = req.body;
+        const fileOnCloudinary = req.file.path;
+    
+        const createdPost = await Post.create({
+            title,
+            description,
+            languageTag,
+            postPicture: fileOnCloudinary,
+            author: req.session.user._id
+          });
+    
+    res.redirect('/')
+    } catch (error) {
+        console.log(error)
+    }
+
+});
+
 
 // GET /edit-post
 

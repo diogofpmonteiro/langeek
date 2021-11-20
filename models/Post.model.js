@@ -5,7 +5,7 @@ const postSchema = new Schema({
   postPicture: { type: String, required: true },
   description: { type: String, required: true },
   languageTag: { type: String, required: true },
-  author: { type: { type: Schema.Types.ObjectId, ref: "User" } },
+  author:{ type: Schema.Types.ObjectId, ref: "User" },
 });
 
 // Post.findById(123).populate('author')
