@@ -31,6 +31,12 @@ app.use("/", index);
 const auth = require("./routes/auth.routes");
 app.use("/", auth);
 
+const posts = require("./routes/post.routes");
+app.use("/", posts);
+
+const users = require("./routes/user.routes");
+app.use("/", users);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling/error-index")(app);
 
