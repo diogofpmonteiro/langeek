@@ -8,8 +8,10 @@ router.get("/", (req, res, next) => {
 // GET search=? query
 router.get("/search", (req, res) => {
 
-  
-
 });
+
+router.get('/about-us', (req, res) => {
+  res.render('about-us');
+})
 
 module.exports = router;
