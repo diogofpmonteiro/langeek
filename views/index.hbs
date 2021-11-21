@@ -5,7 +5,9 @@
       </div>
       <div class="col-6">
         <div class="card my-5 w-100" style="width: 25rem">
-          {{!-- <h3> <img src="{{!-- post.profilepic --}}" alt="">{{!-- post.author --}}</h3> --}}
+          
+         <a href="/{{this.author._id}}"> <h3> <img src="{{this.author.profilePictureURL}}" width="50px" height="50px">{{this.author.username}}</h3></a>
+         
           <h5 class="card-title">{{this.title}}</h5>
           <img src="{{this.postPicture}}" class="card-img-top" alt="..." />
           <div class="card-body">
