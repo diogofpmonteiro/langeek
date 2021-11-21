@@ -1,9 +1,33 @@
-<h1>Name: {{foundUser.username}}</h1>
-<img src="{{foundUser.profilePictureURL}}" alt="profile-picture" />
-<h1>Languages I Speak: {{foundUser.languagesISpeak}}</h1>
-<h1>Languages I want to learn: {{foundUser.languagesIWantToLearn}}</h1>
-<h1>Contact me via: {{foundUser.socialMediaLink}}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <h1>Name: {{foundUser.username}}</h1>
+      <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" />
+      <hr />
+      <h1>Languages I Speak: {{foundUser.languagesISpeak}}</h1>
+      <hr />
+      <h1>Languages I want to learn: {{foundUser.languagesIWantToLearn}}</h1>
+      <hr />
+      <h1>Posts: </h1>
+      {{! BOOTSTRAP LIST }}
 
-<h1>Posts: </h1>
+    </div>
+    <div class="col-2">
+      {{! FOR POPOVER TO WORK WE NEED TO ADD A 3RD PARTY LIBRARY - POPPER - 
+CHECK https://getbootstrap.com/docs/5.1/components/popovers/  }}
+      <button
+        type="button"
+        class="btn btn-lg btn-dark"
+        data-bs-toggle="popover"
+        title="Popover title"
+        data-bs-content="And here is some amazing content. It's very engaging. Right?"
+      >Connect with me!</button>
+      <h1>Contact me via: {{foundUser.socialMediaLink}}</h1>
 
-<a href="/{{foundUser._id}}/edit-user">Edit profile</a>
+      <button type="button" class="btn btn-success"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button>
+
+      <p><button type="button" class="btn btn-danger"><a href="/logout">Logout</a></button></p>
+    </div>
+  </div>
+</div>

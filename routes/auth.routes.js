@@ -3,6 +3,7 @@ const languages = require("./../languages");
 const User = require("./../models/User.model");
 const fileUploader = require("../config/cloudinary.config");
 const bcrypt = require("bcryptjs");
+const isLoggedIn = require("./../middlewares/is.logged.in");
 
 const SALT_ROUNDS = 10;
 
@@ -33,7 +34,9 @@ router.post("/signup", fileUploader.single("profilePictureURL"), async (req, res
     if (!regex.test(password)) {
       res.status(400).render("auth/signup", {
         errorMessage:
-          "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.", languages});
+          "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
+        languages,
+      });
       return;
     }
 
@@ -99,6 +102,14 @@ router.post("/login", async (req, res) => {
 });
 
 // GET /logout
-router.get("/logout", (req, res) => {});
+router.get("/logout", isLoggedIn, (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.render("error");
+    }
+
+    res.redirect("/");
+  });
+});
 
 module.exports = router;
