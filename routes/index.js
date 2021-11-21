@@ -5,7 +5,7 @@ const Post = require("./../models/Post.model");
 /* GET home page Also renders the search form */
 router.get("/", async (req, res, next) => {
 
-  const allPosts = await Post.find()
+  const allPosts = await Post.find().populate("author")
 
   res.render("index", {allPosts, user: req.session.user});
 });

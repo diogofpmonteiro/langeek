@@ -23,7 +23,7 @@ router.post("/signup", fileUploader.single("profilePictureURL"), async (req, res
     const passwordNotProvided = !password || password === "";
 
     if (usernameNotProvided || passwordNotProvided) {
-      res.render("auth/signup", { errorMessage: "Provide username and password" });
+      res.render("auth/signup", { errorMessage: "Provide username and password", languages });
 
       return;
     }
@@ -33,8 +33,7 @@ router.post("/signup", fileUploader.single("profilePictureURL"), async (req, res
     if (!regex.test(password)) {
       res.status(400).render("auth/signup", {
         errorMessage:
-          "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
-      });
+          "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.", languages});
       return;
     }
 
@@ -58,7 +57,7 @@ router.post("/signup", fileUploader.single("profilePictureURL"), async (req, res
     res.redirect("/");
   } catch (error) {
     console.log(error);
-    res.render("auth/signup", { errorMessage: err.message || "Error while trying to sign up" });
+    res.render("auth/signup", { errorMessage: error.message || "Error while trying to sign up", languages });
   }
 });
 
@@ -95,7 +94,7 @@ router.post("/login", async (req, res) => {
       res.redirect("/");
     }
   } catch (error) {
-    res.render("auth/login", { errorMessage: err.message || "Error while trying to login" });
+    res.render("auth/login", { errorMessage: error.message || "Error while trying to login", languages });
   }
 });
 

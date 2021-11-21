@@ -8,7 +8,7 @@ const fileUploader = require("../config/cloudinary.config");
 
 // GET /create-post
 router.get('/create-post', (req, res) => {
-    res.render('posts/create-post', { languages });
+    res.render('posts/create-post', { languages, user: req.session.user });
 });
 
 

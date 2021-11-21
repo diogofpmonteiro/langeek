@@ -10,7 +10,7 @@ router.get("/:userId", isLoggedIn, async (req, res) => {
     const userId = req.params.userId;
     const foundUser = await User.findById(userId);
 
-    res.render("profile/user-profile", { foundUser });
+    res.render("profile/user-profile", { foundUser, user: req.session.user });
   } catch (error) {
     console.log(error);
   }
