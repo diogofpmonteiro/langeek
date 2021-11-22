@@ -12,8 +12,18 @@ router.get("/", async (req, res, next) => {
 });
 
 // GET search=? query
-router.get("/search", (req, res) => {});
+router.get("/search", async (req, res) => {
+  const languageToSearch = req.query.languageToSearch;
+  const capitalizedLanguageSearch =
+    languageToSearch.substr(0, 1).toUpperCase() + languageToSearch.substr(1).toLowerCase();
+  const languagesSearchResults = await Post.find({ languageTag: capitalizedLanguageSearch }, null, {
+    sort: { createdAt: -1 },
+  }).populate("author");
 
+  res.render("search-results", { languagesSearchResults, user: req.session.user });
+});
+
+// GET /about-us
 router.get("/about-us", (req, res) => {
   res.render("about-us");
 });
