@@ -21,7 +21,8 @@ router.get("/:userId/edit-user", isLoggedIn, async (req, res) => {
   try {
     const userId = req.params.userId;
     const foundUser = await User.findById(userId);
-    res.render("profile/edit-profile", { foundUser, languages });
+
+    res.render("profile/edit-profile", { foundUser, languages, user: req.session.user });
   } catch (error) {
     console.log(error);
   }
