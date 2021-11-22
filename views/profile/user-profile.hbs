@@ -1,4 +1,5 @@
-<div class="container">
+  {{#if isProfileOwner}}
+  <div class="container">
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8 sm-10">
@@ -10,20 +11,9 @@
       <h1>Languages I want to learn: {{foundUser.languagesIWantToLearn}}</h1>
       <hr />
       <h1>Posts: </h1>
-      {{! BOOTSTRAP LIST }}
 
     </div>
     <div class="col-2">
-      {{! FOR POPOVER TO WORK WE NEED TO ADD A 3RD PARTY LIBRARY - POPPER - 
-CHECK https://getbootstrap.com/docs/5.1/components/popovers/  }}
-      <button
-        type="button"
-        class="btn btn-lg btn-dark"
-        data-bs-toggle="popover"
-        data-bs-html="true"
-        title="Contact me via: "
-        data-bs-content="<a href=https://{{foundUser.socialMediaLink}}>{{foundUser.socialMediaLink}}</a>"
-      >Connect with me!</button>
 
       <button type="button" class="btn btn-success"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button>
       <p><button type="button" class="btn btn-danger"><a href="/logout">Logout</a></button></p>
@@ -61,4 +51,66 @@ CHECK https://getbootstrap.com/docs/5.1/components/popovers/  }}
       </div>
     </div>
   </div>
-      {{/each}}
+{{/each}}
+
+    {{else}}
+
+      
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 sm-10">
+      <h1>Name: {{foundUser.username}}</h1>
+      <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" width="50px" height="50px"/>
+      <hr />
+      <h1>Languages I Speak: {{foundUser.languagesISpeak}}</h1>
+      <hr />
+      <h1>Languages I want to learn: {{foundUser.languagesIWantToLearn}}</h1>
+      <hr />
+      <h1>Posts: </h1>
+
+    </div>
+    <div class="col-2">
+
+
+
+      <button
+        type="button"
+        class="btn btn-lg btn-dark"
+        data-bs-toggle="popover"
+        data-bs-html="true"
+        title="Contact me via: "
+        data-bs-content="<a href=https://{{foundUser.socialMediaLink}}>{{foundUser.socialMediaLink}}</a>"
+      >Connect with me!</button>
+
+    </div>
+  </div>
+</div>
+
+      {{#each foundUser.userPosts}}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+          <div class="card my-5 w-100" style="width: 25rem">
+                    
+            <h5 class="card-title">{{this.title}}</h5>
+            <img src="{{this.postPicture}}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <p class="card-text">
+                {{this.description}}
+              </p>
+              
+              <h5 class="card-title btn btn-primary">#{{this.languageTag}}
+            </div>
+          </div>
+          </div>
+        <div class="col-3">
+      </div>
+    </div>
+  </div>
+{{/each}}
+
+{{/if}}

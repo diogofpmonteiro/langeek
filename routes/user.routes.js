@@ -11,7 +11,16 @@ router.get("/:userId", isLoggedIn, async (req, res) => {
     const userId = req.params.userId;
     const foundUser = await User.findById(userId).populate("userPosts");
 
-    res.render("profile/user-profile", { foundUser, user: req.session.user });
+    let isProfileOwner;
+
+    if(req.session.user._id !== userId){
+      isProfileOwner = false;
+      res.render("profile/user-profile", { foundUser, isProfileOwner, user: req.session.user });
+    } else if (req.session.user._id === userId){
+      isProfileOwner = true;
+      res.render("profile/user-profile", { foundUser, isProfileOwner, user: req.session.user });
+    }
+
   } catch (error) {
     console.log(error);
   }
@@ -23,7 +32,12 @@ router.get("/:userId/edit-user", isLoggedIn, async (req, res) => {
     const userId = req.params.userId;
     const foundUser = await User.findById(userId);
 
-    res.render("profile/edit-profile", { foundUser, languages, user: req.session.user });
+    if(req.session.user._id !== userId){
+      res.redirect('/');
+    } else if (req.session.user._id === userId){
+      res.render("profile/edit-profile", { foundUser, languages, user: req.session.user });
+    }
+
   } catch (error) {
     console.log(error);
   }
