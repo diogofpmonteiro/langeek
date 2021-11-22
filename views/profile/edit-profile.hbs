@@ -19,7 +19,13 @@
     <label class="form-label">Languages I want to learn</label>
     <select class="form-select" name="languagesIWantToLearn" multiple >
     {{#each languages}}
-    <option>{{this}}</option>
+
+      {{#if isSpoken}}
+          <option selected>{{this}}</option>
+          {{else}}
+          <option>{{this}}</option>
+      {{/if}}
+
     {{/each}}
   </select>
   </div>

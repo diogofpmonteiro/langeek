@@ -31,10 +31,16 @@ router.post("/create-post", fileUploader.single("postPicture"), async (req, res)
   }
 });
 
-// GET /edit-post
-
-// POST /edit-post
-
 // POST /edit-post/delete
+router.post("/delete-post/:postId", async (req, res) => {
+  try {
+    const postId = req.params.postId;
+    console.log(req.params.postId);
+    await Post.findByIdAndRemove(postId);
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router;
