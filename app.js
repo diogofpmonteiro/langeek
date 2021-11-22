@@ -12,9 +12,10 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-const helpers = require("handlebars-helpers");
 
-hbs.registerHelper(helpers());
+// ! HANDLEBARS HELPERS
+// const helpers = require("handlebars-helpers");
+// hbs.registerHelper(helpers());
 
 const app = express();
 
