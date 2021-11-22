@@ -6,9 +6,9 @@ const isLoggedIn = require("./../middlewares/is.logged.in");
 /* GET home page Also renders the search form */
 router.get("/", async (req, res, next) => {
   //! It's not working with sort
-  const allPosts = await Post.find(null, null, { sort: { createdAt: -1 } }).populate("author");
+  const allPosts = await Post.find(null, null, { sort: { createdAt: -1 }}).populate("author");
 
-  res.render("index", { allPosts, user: req.session.user });
+  res.render("index", { allPosts , user: req.session.user});
 });
 
 // GET search=? query
