@@ -8,7 +8,8 @@
     <input type="password" class="form-control" name="password" required>
   </div>
   <div class="col-md-4">
-    <label class="form-label">Languages I speak</label>
+    <label class="form-label">Languages I speak </label>
+    <p class="small">Use cmd + 'click' to select multiple languages </p>
     <select class="form-select" name="languagesISpeak" multiple required>
     {{#each languages}}
     <option>{{this}}</option>
@@ -17,6 +18,7 @@
   </div>
   <div class="col-md-4">
     <label class="form-label">Languages I want to learn</label>
+    <p class="small">Use cmd + 'click' to select multiple languages </p>
     <select class="form-select" name="languagesIWantToLearn" multiple required>
     {{#each languages}}
     <option>{{this}}</option>

@@ -1,18 +1,24 @@
-  {{!-- Each --}}
+{{#each languagesSearchResults}}
   <div class="container">
     <div class="row">
       <div class="col-3">
       </div>
       <div class="col-6">
         <div class="card my-5 w-100" style="width: 25rem">
-          <h3> <img src="{{!-- post.title --}}" alt="">{{!-- post.author --}}</h3>
-          <h5 class="card-title">{{!-- post.title --}}</h5>
-          <img src="{{!-- post.picture --}}" class="card-img-top" alt="..." />
+          <a href="/{{this.author._id}}">
+            <h3>
+              <img
+                src="{{this.author.profilePictureURL}}"
+                width="50px"
+                height="50px"
+              />{{this.author.username}}</h3></a>
+          <h5 class="card-title">{{this.title}}</h5>
+          <img src="{{this.postPicture}}" class="card-img-top" alt="post picture" />
           <div class="card-body">
             <p class="card-text">
-              {{!-- post.description --}}
+              {{this.description}}
             </p>
-            <a href="#" class="btn btn-primary">{{!-- # post.language --}}</a>
+            <a class="btn btn-primary">#{{this.languageTag}}</a>
           </div>
         </div>
       </div>
@@ -20,3 +26,4 @@
       </div>
     </div>
   </div>
+{{/each}}
