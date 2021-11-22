@@ -3,6 +3,7 @@ const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
 const isLoggedIn = require("./../middlewares/is.logged.in");
 const languages = require("./../languages");
+const fileUploader = require("../config/cloudinary.config");
 
 // GET /:userId
 router.get("/:userId", isLoggedIn, async (req, res) => {
@@ -29,12 +30,19 @@ router.get("/:userId/edit-user", isLoggedIn, async (req, res) => {
 });
 
 // POST /:userId/edit-user
-router.post("/:userId/edit-user", async (req, res) => {
+router.post("/:userId/edit-user", fileUploader.single('newImage'), async (req, res) => {
   try {
-    const { username, languagesISpeak, languagesIWantToLearn, socialMediaLink } = req.body;
-    const userInfo = { username, languagesISpeak, languagesIWantToLearn, socialMediaLink };
+    const { username, languagesISpeak, languagesIWantToLearn, socialMediaLink, existingImage} = req.body;
     const userId = req.params.userId;
 
+    let imageUrl; 
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
+    }
+
+    const userInfo = { username, languagesISpeak, languagesIWantToLearn, socialMediaLink, profilePictureURL: imageUrl}; 
     const updatedUser = await User.findByIdAndUpdate(userId, userInfo);
 
     res.redirect("/");
