@@ -8,7 +8,7 @@ const languages = require("./../languages");
 router.get("/:userId", isLoggedIn, async (req, res) => {
   try {
     const userId = req.params.userId;
-    const foundUser = await User.findById(userId);
+    const foundUser = await User.findById(userId).populate("userPosts");
 
     res.render("profile/user-profile", { foundUser, user: req.session.user });
   } catch (error) {
