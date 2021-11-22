@@ -20,13 +20,13 @@ CHECK https://getbootstrap.com/docs/5.1/components/popovers/  }}
         type="button"
         class="btn btn-lg btn-dark"
         data-bs-toggle="popover"
-        title="Popover title"
-        data-bs-content="And here is some amazing content. It's very engaging. Right?"
+        data-bs-html="true"
+        title="Contact me via: "
+        data-bs-content="<a href={{foundUser.socialMediaLink}}>{{foundUser.socialMediaLink}}</a>"
       >Connect with me!</button>
-      <h1>Contact me via: {{foundUser.socialMediaLink}}</h1>
+
 
       <button type="button" class="btn btn-success"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button>
-
       <p><button type="button" class="btn btn-danger"><a href="/logout">Logout</a></button></p>
 
       
