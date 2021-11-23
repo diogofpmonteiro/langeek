@@ -55,11 +55,21 @@
       </div>
     </div>
     <div>
-        <button type="button" class="btn btn-success"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button>
-        <p><button type="button" class="btn btn-danger"><a href="/logout">Logout</a></button></p>
     </div>
   </div>
 {{/each}}
+ 
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6 d-flex">
+      <p><button type="button" class="btn"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button></p>
+      <p><button type="button" class="btn" style="margin-left: 1em;"><a href="/logout">Logout</a></button></p>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
 
     {{else}}
 
