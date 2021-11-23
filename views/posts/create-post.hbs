@@ -1,32 +1,83 @@
-
-
-<form class="row g-3" action="/create-post" method="POST" enctype="multipart/form-data">
+{{!-- <form class="row g-3" action="/create-post" method="POST" enctype="multipart/form-data">
 
   <div class="col-md-6">
     <label class="form-label">Title</label>
-    <input type="text" class="form-control" name="title" required>
+    <input type="text" class="form-control" name="title" required />
   </div>
 
-   <div class="col-md-6">
+  <div class="col-md-6">
     <label class="form-label">Description</label>
     <textarea class="form-control" name="description" required></textarea>
   </div>
 
-    <div class="col-md-4">
-        <label class="form-label">This post is about...</label>
-        <select class="form-select" name="languageTag" multiple required>
-        {{#each languages}}
-            <option>{{this}}</option>
-         {{/each}}
-        </select>
-    </div>
+  <div class="col-md-4">
+    <label class="form-label">This post is about...</label>
+    <select class="form-select" name="languageTag" multiple required>
+      {{#each languages}}
+        <option>{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
 
   <div class="col-md-2">
     <label class="form-label">Photo</label>
-    <input type="file" class="form-control" name="postPicture" required>
+    <input type="file" class="form-control" name="postPicture" required />
   </div>
 
   <div class="col-12">
     <button type="submit" class="btn btn-primary">Publish</button>
+  </div>
+</form> --}}
+
+{{! START OF NEW VIEW }}
+
+<form class="row g-3" action="/create-post" method="POST" enctype="multipart/form-data">
+  <div class="container">
+    <div class="row">
+      {{! LEFT COLUMN }}
+      <div class="col-3"></div>
+
+      {{! CENTER COLUMN }}
+      <div class="col-6">
+        {{! Post title input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">Title</label>
+          <input type="text" class="form-control" name="title" required />
+        </div>
+
+        {{! Post description input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">Description</label>
+          <textarea class="form-control" name="description" required></textarea>
+        </div>
+
+        {{! Language tag input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">This post is about...</label>
+          <select class="form-select" name="languageTag" multiple required>
+            {{#each languages}}
+              <option>{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
+
+        {{! Post picture input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">Photo</label>
+          <input type="file" class="form-control" name="postPicture" required />
+        </div>
+
+        {{! Publish post button }}
+        <div class="col-12 custom-form-input">
+          <button type="submit" class="btn btn-primary">Publish</button>
+        </div>
+
+        {{! END OF CENTER COLUMN IS THE NEXT /DIV }}
+      </div>
+
+      {{! RIGHT COLUMN }}
+      <div class="col-3"></div>
+
+    </div>
   </div>
 </form>

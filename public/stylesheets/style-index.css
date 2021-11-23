@@ -1,44 +1,48 @@
 .card {
-    padding: 1rem;
+  padding: 1rem;
 }
 
-.custom-user-link{
-    color: #212121;
+.custom-user-link {
+  color: #212121;
 }
 
-.custom-profile-picture{
-    margin-right: 0.8rem;
+.custom-user-link:hover {
+  color: #212121;
 }
 
-.custom-username{
-    font-size: 1.5rem;
+.custom-profile-picture {
+  margin-right: 0.8rem;
+}
+
+.custom-username {
+  font-size: 1.5rem;
 }
 
 .card-title {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.7rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
 }
 
 .card-text {
-    font-size: 1.7em;
-    text-align: justify;
-    color: #212121;
+  font-size: 1.7em;
+  text-align: justify;
+  color: #212121;
 }
 
 .btn {
-    background-color: #D9CAB3;
-    border: #D9CAB3;
+  background-color: #d9cab3;
+  border: #d9cab3;
 }
 
 .btn:hover {
-    background-color: #c0b39f;
+  background-color: #c0b39f;
 }
 
 .custom-atag {
-    color: black;
+  color: black;
 }
 
 .custom-atag:hover {
-    color: #212121;
+  color: #212121;
 }
