@@ -67,7 +67,7 @@ router.post("/:userId/edit-user", fileUploader.single("newImage"), async (req, r
     const userInfo = { username, languagesISpeak, languagesIWantToLearn, socialMediaLink, profilePictureURL: imageUrl };
     const updatedUser = await User.findByIdAndUpdate(userId, userInfo);
 
-    res.redirect("/");
+    res.render("profile/user-profile", { updatedUser, user: req.session.user });
   } catch (error) {
     console.log(error);
   }

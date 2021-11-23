@@ -1,5 +1,5 @@
 body {
-  font-family: 'Mukta', sans-serif;
+  font-family: "Mukta", sans-serif;
   font-size: 10px;
 }
 
@@ -13,6 +13,10 @@ a:hover {
 }
 
 .logo-text {
-  font-family: 'Unica One', cursive;
+  font-family: "Unica One", cursive;
   font-size: 2rem;
+}
+
+.custom-navbar-class {
+  background-color: #6d9886;
 }
