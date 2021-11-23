@@ -30,3 +30,7 @@ a:hover {
   color: white;
   font-size: 2em;
 }
+
+.navbar-collapse {
+  margin-left: 1.5rem;
+}
