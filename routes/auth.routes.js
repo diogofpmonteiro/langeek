@@ -94,7 +94,7 @@ router.post("/login", async (req, res) => {
       throw new Error("Wrong credentials");
     } else if (isCorrectPassword) {
       req.session.user = foundUser;
-      res.redirect("/");
+      res.render("/", {user: req.session.user} );
     }
   } catch (error) {
     res.render("auth/login", { errorMessage: error.message || "Error while trying to login", languages });
