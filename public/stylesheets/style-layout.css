@@ -1,6 +1,7 @@
 body {
   font-family: "Mukta", sans-serif;
   font-size: 10px;
+  margin-top: 0;
 }
 
 a {
@@ -9,7 +10,7 @@ a {
 }
 
 a:hover {
-  color: grey;
+  color: white;
 }
 
 .logo-text {
@@ -19,4 +20,13 @@ a:hover {
 
 .custom-navbar-class {
   background-color: #6d9886;
+}
+
+.navbar {
+  padding-top: 0;
+}
+
+.nav-link {
+  color: white;
+  font-size: 2em;
 }
