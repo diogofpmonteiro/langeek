@@ -1,4 +1,7 @@
+  <link rel="stylesheet" href="/stylesheets/style-user-profile.css" />
+  
   {{#if isProfileOwner}}
+
   <div class="container">
   <div class="row">
     <div class="col-2"></div>
@@ -13,7 +16,7 @@
       <h3>Posts: </h3>
 
     </div>
-    <div class="col-2">
+     <div class="col-2">
 
       <button type="button" class="btn btn-success"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button>
       <p><button type="button" class="btn btn-danger"><a href="/logout">Logout</a></button></p>
@@ -29,15 +32,19 @@
         <div class="col-3">
         </div>
         <div class="col-6">
+          
           <div class="card my-5 w-100" style="width: 25rem">
                     
-            <h5 class="card-title">{{this.title}}
+            <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{this.title}}</h5>
             <form action="/delete-post/{{this._id}}" method="POST">
             <button type="submit" class="btn btn-danger .align-self-end">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-            </svg></a></button></form></h5>
+            </svg></a></button></form>
+            </div>
+
             <img src="{{this.postPicture}}" class="card-img-top" alt="..." />
             <div class="card-body">
               <p class="card-text">
@@ -56,7 +63,7 @@
 
     {{else}}
 
-      
+     
 <div class="container">
   <div class="row">
     <div class="col-2"></div>
@@ -68,23 +75,18 @@
       <hr />
       <h1>Languages I want to learn: {{foundUser.languagesIWantToLearn}}</h1>
       <hr />
-      <h1>Posts: </h1>
-
-    </div>
-    <div class="col-2">
-
-
-
-      <button
+            <button
         type="button"
         class="btn btn-lg btn-dark"
         data-bs-toggle="popover"
         data-bs-html="true"
         title="Contact me via: "
         data-bs-content="<a href=https://{{foundUser.socialMediaLink}}>{{foundUser.socialMediaLink}}</a>"
-      >Connect with me!</button>
+      >Connect with me!</button> 
+      <h1>Posts: </h1>
 
     </div>
+    <div class="col-2">
   </div>
 </div>
 
@@ -115,3 +117,4 @@
 {{/each}}
 
 {{/if}}
+
