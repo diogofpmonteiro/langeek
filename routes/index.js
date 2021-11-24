@@ -18,7 +18,7 @@ router.get("/", async (req, res, next) => {
         path: 'commentator',
         model: 'User'
     }
-}); /* author comments */
+}); 
 
   res.render("index", { allPosts, user: req.session.user});
 });
