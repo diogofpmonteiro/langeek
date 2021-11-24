@@ -9,10 +9,9 @@ router.post('/add-comment/:postId', isLoggedIn, async (req, res) => {
     try {
         const postid = req.params.postId;
         const {text} = req.body;
-        const author =  req.session.user._id;
-
+        
        const createdComment = await Comment.create({
-         author: req.session.user._id,
+        commentator: req.session.user._id,
          text
      });
 

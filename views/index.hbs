@@ -24,8 +24,11 @@
             <p class="card-text">
               {{this.description}}
             </p>
-
-          {{!-- Display Comments --}}
+          
+          {{#each this.comments}}
+          <p>{{this.commentator}}</p>
+          <p>{{this.text}}</p>
+          {{/each}}
 
             <button class="btn" type="submit"><a class="custom-atag"
                 href="/search?languageToSearch={{this.languageTag}}"
