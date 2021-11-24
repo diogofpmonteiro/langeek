@@ -7,6 +7,7 @@ const postSchema = new Schema(
     description: { type: String, required: true },
     languageTag: { type: String, required: true },
     author: { type: Schema.Types.ObjectId, ref: "User" },
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
   },
   {
     timestamps: true,
