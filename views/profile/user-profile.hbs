@@ -4,13 +4,14 @@
 
   <div class="container">
   <div class="row">
+    {{!-- First column --}}
     <div class="col-sm-3 col-md-3 d-flex justify-content-end">
       <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" class="custom-pfp"/>
     </div>
+    {{!-- Second column --}}
     <div class="col-sm-8 col-md-7">
-      <span>{{foundUser.username}}</span>
+      <span class="username-span">{{foundUser.username}}</span>
       
-
       <h3>Languages I Speak:</h3> 
       {{#each foundUser.languagesISpeak}}
             <button class="button-55" role="button">{{this}}</button>
@@ -21,11 +22,9 @@
       <button class="button-55" role="button">{{this}}</button>
        {{/each}}
 
-      
-
     </div>
-     <div class="col-sm-1 col-md-2">
-    </div>
+    {{!-- Third column --}}
+     <div class="col-sm-1 col-md-2"></div>
   </div>
 </div>
       {{#each foundUser.userPosts}}
@@ -87,7 +86,7 @@
     
     <div class="col-sm-8 col-md-7">
       
-      <span>{{foundUser.username}}</span>
+      <span class="username-span">{{foundUser.username}}</span>
         <button
         type="button"
         class="btn btn-lg btn-dark"
@@ -109,8 +108,8 @@
 
     </div>
     <div class="col-sm-1 col-md-2"></div>
+  </div>
 </div>
-
       {{#each foundUser.userPosts}}
 
     <div class="container">

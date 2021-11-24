@@ -1,50 +1,50 @@
 .card {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .card-title {
-    margin-bottom: 0.5rem;
-    font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
 }
 
 .card-text {
-    font-size: 1.7em;
-    text-align: justify;
-    color: #212121;
+  font-size: 1.7em;
+  text-align: justify;
+  color: #212121;
 }
 
 .btn {
-    background-color: #D9CAB3;
-    border: #D9CAB3;
-    color: #212121;
+  background-color: #d9cab3;
+  border: #d9cab3;
+  color: #212121;
 }
 
 .btn:hover {
-    background-color: #c0b39f;
+  background-color: #c0b39f;
 }
 
 .custom-atag {
-    color: black;
+  color: black;
 }
 
 .custom-atag:hover {
-    color: #212121;
+  color: #212121;
 }
 
 .container {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 h3 {
-    font-size: 2.7em;
-    margin-bottom: 0.5em;
+  font-size: 2.7em;
+  margin-bottom: 0.5em;
 }
 
-span {
-        font-size: 2.7em;
-        margin-bottom: 0.5em;
-        margin-right: 12.5em;
-        font-weight: 600;
+.username-span {
+  font-size: 2.7em;
+  margin-bottom: 0.5em;
+  margin-right: 10em;
+  font-weight: 600;
 }
 /* CSS */
 .button-55 {
@@ -65,7 +65,7 @@ span {
   font-size: 1rem;
   line-height: 23px;
   outline: none;
-  padding: .75rem;
+  padding: 0.75rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
@@ -80,10 +80,10 @@ span {
 }
 
 .custom-pfp {
-    border-radius: 50px;
-    width: 100%;
+  border-radius: 50px;
+  width: 100%;
 }
 
 .custom-ahref {
-    color: black;
+  color: black;
 }
