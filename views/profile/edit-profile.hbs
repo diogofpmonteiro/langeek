@@ -1,48 +1,73 @@
 <form class="row g-3" action="/{{foundUser._id}}/edit-user" method="POST" enctype="multipart/form-data">
-  <div class="col-md-6">
-    <label class="form-label">Username</label>
-    <input type="text" class="form-control" name="username" value="{{foundUser.username}}">
-  </div>
-  {{!-- <div class="col-md-6">
-    <label class="form-label">Password</label>
-    <input type="password" class="form-control" name="password" required>
-  </div> --}}
-  <div class="col-md-4">
-    <label class="form-label">Languages I speak</label>
-    <select class="form-select" name="languagesISpeak" multiple>
-    {{#each languages}}
-    <option>{{this}}</option>
-    {{/each}}
-  </select>
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">Languages I want to learn</label>
-    <select class="form-select" name="languagesIWantToLearn" multiple >
-    {{#each languages}}
+  <div class="container">
+    <div class="row">
+      {{! LEFT COLUMN }}
+      <div class="col-3"></div>
 
-      {{#if isSpoken}}
-          <option selected>{{this}}</option>
-          {{else}}
-          <option>{{this}}</option>
-      {{/if}}
+      {{! CENTER COLUMN }}
+      <div class="col-sm-12 col-md-6">
+        {{! Username input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">Username</label>
+          <input type="text" class="form-control" name="username" value="{{foundUser.username}}" />
+        </div>
 
-    {{/each}}
-  </select>
-  </div>
+        {{! Languages I speak input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">Languages I speak</label>
+          <select class="form-select" name="languagesISpeak" multiple>
+            {{#each languages}}
+              <option>{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
 
-  <div class="col-md-6">
-    <label class="form-label">How I want people to contact me</label>
-    <input type="text" class="form-control" name="socialMediaLink" placeholder="twitter.com/example" value="{{foundUser.socialMediaLink}}">
-  </div>
-  
-  <div class="col-md-2">
-    <label class="form-label">Profile Picture</label>
-    <input type="file" class="form-control" name="newImage">
-    <input type="text" name="existingImage" hidden value="{{foundUser.profilePictureURL}}">
-  </div>
-  </div>
+        {{! Languages I Want to Learn input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">Languages I want to learn</label>
+          <select class="form-select" name="languagesIWantToLearn" multiple>
+            {{#each languages}}
 
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Update Profile</button>
+              {{#if isSpoken}}
+                <option selected>{{this}}</option>
+              {{else}}
+                <option>{{this}}</option>
+              {{/if}}
+
+            {{/each}}
+          </select>
+        </div>
+
+        {{! How I want people to contact me input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">How I want people to contact me</label>
+          <input
+            type="text"
+            class="form-control"
+            name="socialMediaLink"
+            placeholder="twitter.com/example"
+            value="{{foundUser.socialMediaLink}}"
+          />
+        </div>
+
+        {{! Profile picture input }}
+        <div class="col-md-12">
+          <label class="form-label custom-form-input">Profile Picture</label>
+          <input type="file" class="form-control" name="newImage" />
+          <input type="text" name="existingImage" hidden value="{{foundUser.profilePictureURL}}" />
+        </div>
+
+        {{! Update profile button }}
+        <div class="col-md-12 justify-content-center custom-form-input">
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+        </div>
+
+        {{! END OF CENTER COLUMN IS THE NEXT /DIV }}
+      </div>
+
+      {{! RIGHT COLUMN }}
+      <div class="col-3"></div>
+
+    </div>
   </div>
 </form>

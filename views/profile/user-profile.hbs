@@ -4,29 +4,31 @@
 
   <div class="container">
   <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8 sm-10">
-      <h3>Name: {{foundUser.username}}</h3>
-      <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" width="50px" height="50px"/>
-      <hr />
-      <h3>Languages I Speak: {{foundUser.languagesISpeak}}</h3>
-      <hr />
-      <h3>Languages I want to learn: {{foundUser.languagesIWantToLearn}}</h3>
-      <hr />
-      <h3>Posts: </h3>
+    <div class="col-sm-3 col-md-3 d-flex justify-content-end">
+      <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" class="custom-pfp"/>
+    </div>
+    <div class="col-sm-8 col-md-7">
+      <span>{{foundUser.username}}</span>
+      
+
+      <h3>Languages I Speak:</h3> 
+      {{#each foundUser.languagesISpeak}}
+            <button class="button-55" role="button">{{this}}</button>
+       {{/each}}
+
+      <h3>Languages I want to learn: </h3> 
+      {{#each foundUser.languagesIWantToLearn}}
+      <button class="button-55" role="button">{{this}}</button>
+       {{/each}}
+
+      
 
     </div>
-     <div class="col-2">
-
-      <button type="button" class="btn btn-success"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button>
-      <p><button type="button" class="btn btn-danger"><a href="/logout">Logout</a></button></p>
-
+     <div class="col-sm-1 col-md-2">
     </div>
   </div>
 </div>
-
       {{#each foundUser.userPosts}}
-
     <div class="container">
       <div class="row">
         <div class="col-sm-0 col-md-3">
@@ -58,45 +60,64 @@
         <div class="col-sm-0 col-md-3">
       </div>
     </div>
+    <div>
+    </div>
   </div>
 {{/each}}
-
-    {{else}}
-
-     
+ 
 <div class="container">
   <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8 sm-10">
-      <h1>Name: {{foundUser.username}}</h1>
-      <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" width="50px" height="50px"/>
-      <hr />
-      <h1>Languages I Speak: {{foundUser.languagesISpeak}}</h1>
-      <hr />
-      <h1>Languages I want to learn: {{foundUser.languagesIWantToLearn}}</h1>
-      <hr />
-            <button
+    <div class="col"></div>
+    <div class="col-6 d-flex">
+      <p><button type="button" class="btn"><a href="/{{foundUser._id}}/edit-user" class="custom-ahref">Edit profile</a></button></p>
+      <p><button type="button" class="btn" style="margin-left: 1em;"><a href="/logout" class="custom-ahref">Logout</a></button></p>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+
+{{else}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-md-3 d-flex justify-content-end">
+      <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" class="custom-pfp"/>
+    </div>
+    
+    <div class="col-sm-8 col-md-7">
+      
+      <span>{{foundUser.username}}</span>
+        <button
         type="button"
         class="btn btn-lg btn-dark"
         data-bs-toggle="popover"
         data-bs-html="true"
         title="Contact me via: "
-        data-bs-content="<a href=https://{{foundUser.socialMediaLink}}>{{foundUser.socialMediaLink}}</a>"
+        data-bs-content="<a href=https://{{foundUser.socialMediaLink}} target=_blank>{{foundUser.socialMediaLink}}</a>"
       >Connect with me!</button> 
-      <h1>Posts: </h1>
+
+      <h3>Languages I Speak: </h3>
+      {{#each foundUser.languagesISpeak}}
+            <button class="button-55" role="button">{{this}}</button>
+       {{/each}}
+      
+      <h3>Languages I want to learn: </h3>
+      {{#each foundUser.languagesIWantToLearn}}
+      <button class="button-55" role="button">{{this}}</button>
+       {{/each}}
 
     </div>
-    <div class="col-2">
-  </div>
+    <div class="col-sm-1 col-md-2"></div>
 </div>
 
       {{#each foundUser.userPosts}}
 
     <div class="container">
       <div class="row">
-        <div class="col-3">
+        <div class="col-sm-0 col-md-3">
         </div>
-        <div class="col-6">
+        <div class="col-sm-0 col-md-6">
           <div class="card my-5 w-100" style="width: 25rem">
                     
             <h5 class="card-title">{{this.title}}</h5>
@@ -106,11 +127,11 @@
                 {{this.description}}
               </p>
               
-              <h5 class="card-title btn btn-primary">#{{this.languageTag}}
+              <h5 class="btn btn-primary"># {{this.languageTag}}
             </div>
           </div>
           </div>
-        <div class="col-3">
+        <div class="col-sm-0 col-md-6">
       </div>
     </div>
   </div>
