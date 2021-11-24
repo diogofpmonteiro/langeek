@@ -69,8 +69,8 @@
   <div class="row">
     <div class="col"></div>
     <div class="col-6 d-flex">
-      <p><button type="button" class="btn"><a href="/{{foundUser._id}}/edit-user">Edit profile</a></button></p>
-      <p><button type="button" class="btn" style="margin-left: 1em;"><a href="/logout">Logout</a></button></p>
+      <p><button type="button" class="btn"><a href="/{{foundUser._id}}/edit-user" class="custom-ahref">Edit profile</a></button></p>
+      <p><button type="button" class="btn" style="margin-left: 1em;"><a href="/logout" class="custom-ahref">Logout</a></button></p>
     </div>
     <div class="col"></div>
   </div>
@@ -94,7 +94,7 @@
         data-bs-toggle="popover"
         data-bs-html="true"
         title="Contact me via: "
-        data-bs-content="<a href=https://{{foundUser.socialMediaLink}}>{{foundUser.socialMediaLink}}</a>"
+        data-bs-content="<a href=https://{{foundUser.socialMediaLink}} target=_blank>{{foundUser.socialMediaLink}}</a>"
       >Connect with me!</button> 
 
       <h3>Languages I Speak: </h3>

@@ -83,3 +83,7 @@ span {
     border-radius: 50px;
     width: 100%;
 }
+
+.custom-ahref {
+    color: black;
+}

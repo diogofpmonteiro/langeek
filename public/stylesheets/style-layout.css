@@ -6,17 +6,17 @@ body {
 }
 
 a {
-  color: white;
   text-decoration: none;
 }
 
 a:hover {
-  color: white;
+  color: black;
 }
 
 .logo-text {
   font-family: "Unica One", cursive;
   font-size: 2rem;
+  color: white;
 }
 
 .custom-navbar-class {
@@ -32,6 +32,10 @@ a:hover {
   font-size: 2em;
 }
 
+.nav-link:hover {
+  color: black;
+}
+
 .navbar-collapse {
   margin-left: 1.5rem;
 }
@@ -44,4 +48,8 @@ a:hover {
 .custom-form-input {
   margin-top: 15px;
   font-size: 1rem;
+}
+
+footer {
+  font-size: 1.7em;
 }
