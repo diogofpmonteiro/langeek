@@ -5,9 +5,23 @@ const Comment = require("./../models/Comment.model");
 const isLoggedIn = require("./../middlewares/is.logged.in");
 
 
-router.post('/add-comment/:postId', isLoggedIn, (req, res) => {
-    const postid = req.params.postId;
+router.post('/add-comment/:postId', isLoggedIn, async (req, res) => {
+    try {
+        const postid = req.params.postId;
+        const {text} = req.body;
+        const author =  req.session.user._id;
 
+       const createdComment = await Comment.create({
+         author: req.session.user._id,
+         text
+     });
+
+     await Post.findByIdAndUpdate(postid, {$push: {comments: createdComment._id}})
+     res.redirect('/');  
+
+    } catch (error) {
+        console.log(error);
+    }
 
 });
 
