@@ -25,21 +25,29 @@
             <p class="card-text">
               {{this.description}}
             </p>
-          
-          {{#each this.comments}}
-          <p class="custom-comment"><strong>{{this.commentator.username}} </strong> &nbsp; {{this.text}}</p>
-          {{/each}}
 
-            <button class="btn" type="submit"><a class="custom-atag"
+            {{#each this.comments}}
+              <p class="custom-comment"><strong>{{this.commentator.username}} </strong> &nbsp; {{this.text}}</p>
+            {{/each}}
+
+            <button class="btn" type="submit"><a
+                class="custom-atag"
                 href="/search?languageToSearch={{this.languageTag}}"
               ># {{this.languageTag}}</a></button>
           </div>
-        <div class="input-group mb-3">
-          <form action="/add-comment/{{this._id}}" method="POST">
-            <input type="text" class="form-control" placeholder="Your comment" aria-label="Recipient's username" aria-describedby="button-addon2" name="text">
-            <button class="btn btn-outline-secondary" type="submit">Comment</button>
-          </form>
-        </div>
+          <div class="input-group mb-3">
+            <form action="/add-comment/{{this._id}}" method="POST">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your comment"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+                name="text"
+              />
+              <button class="btn btn-outline-secondary" type="submit">Comment</button>
+            </form>
+          </div>
         </div>
       </div>
       {{! Third column }}
