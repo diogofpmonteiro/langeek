@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/stylesheets/style-index.css" />
+
+{{#each userWhoFavorited.favoritePosts}}
+
+  <div class="container">
+    <div class="row">
+      {{! First column }}
+      <div class="col-sm-0 col-md-3"></div>
+      {{! Second column }}
+      <div class="col-sm-12 col-md-6">
+        <div class="card my-5 w-100" style="width: 25rem">
+
+          <a href="/{{author._id}}" class="custom-user-link">
+            <h3 class="custom-username">
+              <img
+                src="{{author.profilePictureURL}}"
+                width="50px"
+                height="50px"
+                class="custom-profile-picture"
+              />{{author.username}}</h3>
+          </a>
+
+          <h5 class="card-title">{{title}}</h5>
+          <img src="{{postPicture}}" class="card-img-top" alt="post picture" />
+          <div class="card-body">
+            <p class="card-text">{{description}}<p>
+            <button class="btn" type="submit"><a
+                class="custom-atag"
+                href="/search?languageToSearch={{languageTag}}"
+              ># {{languageTag}}</a></button>
+          </div>
+
+        </div>
+      </div>
+      {{! Third column }}
+      <div class="col-sm-0 col-md-3"></div>
+    </div>
+  </div>
+{{/each}}

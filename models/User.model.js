@@ -8,6 +8,7 @@ const userSchema = new Schema({
   socialMediaLink: { type: String, required: true },
   profilePictureURL: { type: String, required: true },
   userPosts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+  favoritePosts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
 });
 
 const User = model("User", userSchema);
