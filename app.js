@@ -14,8 +14,8 @@ const express = require("express");
 const hbs = require("hbs");
 
 // ! HANDLEBARS HELPERS
-// const helpers = require("handlebars-helpers");
-// hbs.registerHelper(helpers());
+const helpers = require("handlebars-helpers");
+hbs.registerHelper(helpers());
 
 const app = express();
 

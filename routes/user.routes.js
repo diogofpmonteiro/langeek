@@ -31,19 +31,10 @@ router.get("/:userId/edit-user", isLoggedIn, async (req, res) => {
     const userId = req.params.userId;
     const foundUser = await User.findById(userId);
 
-    // languages.forEach((language) => {
-    //   foundUser.languagesISpeak.forEach((lan) => {
-    //     if (language === lan) {
-    // let isSpoken;
-    // ! We found a way to check if we speak the language...
-    //       isSpoken = true;
-    //     }
-    //   });
-    // });
-
     if (req.session.user._id !== userId) {
       res.redirect("/");
     } else if (req.session.user._id === userId) {
+      console.log(foundUser, languages);
       res.render("profile/edit-profile", { foundUser, languages, user: req.session.user });
     }
   } catch (error) {
