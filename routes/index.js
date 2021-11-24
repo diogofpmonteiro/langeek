@@ -6,21 +6,21 @@ const isLoggedIn = require("./../middlewares/is.logged.in");
 
 /* GET home page Also renders the search form */
 router.get("/", async (req, res, next) => {
-  
-  const allPosts = await Post.find(null, null, { sort: { createdAt: -1 }}).populate({
-    path: 'author',
-    model: 'User'
-})
-.populate({
-    path: 'comments',
-    model: 'Comment',
-    populate: {
-        path: 'commentator',
-        model: 'User'
-    }
-}); /* author comments */
+  const allPosts = await Post.find(null, null, { sort: { createdAt: -1 } })
+    .populate({
+      path: "author",
+      model: "User",
+    })
+    .populate({
+      path: "comments",
+      model: "Comment",
+      populate: {
+        path: "commentator",
+        model: "User",
+      },
+    });
 
-  res.render("index", { allPosts, user: req.session.user});
+  res.render("index", { allPosts, user: req.session.user });
 });
 
 // GET search=? query
