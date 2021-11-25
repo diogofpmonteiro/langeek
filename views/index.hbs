@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/stylesheets/style-index.css" />
 
+{{#if user}}
 {{#each allPosts}}
   <div class="container">
     <div class="row">
@@ -70,7 +71,6 @@
               <button class="btn btn-outline-secondary" type="submit">Comment</button>
             </form>
           </div>
-
         </div>
       </div>
       {{! Third column }}
@@ -78,3 +78,74 @@
     </div>
   </div>
 {{/each}}
+
+{{else}}
+
+{{#each allPosts}}
+  <div class="container">
+    <div class="row">
+      {{! First column }}
+      <div class="col-sm-0 col-md-3"></div>
+      {{! Second column }}
+      <div class="col-sm-12 col-md-6">
+        <div class="card my-5 w-100" style="width: 25rem">
+
+          <a href="/{{this.author._id}}" class="custom-user-link">
+            <h3 class="custom-username">
+              <img
+                src="{{this.author.profilePictureURL}}"
+                width="50px"
+                height="50px"
+                class="custom-profile-picture"
+              />{{this.author.username}}</h3>
+          </a>
+
+          <h5 class="card-title">{{this.title}}</h5>
+          <img src="{{this.postPicture}}" class="card-img-top" alt="post picture" />
+          <div class="card-body">
+            <p class="card-text">
+              {{this.description}}
+              <form action="/add-favorite/{{this._id}}" method="POST">
+                <button class="btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-bookmark-heart"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"
+                    ></path>
+                    <path
+                      d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                    ></path>
+                  </svg>
+                </button>
+              </form>
+            </p>
+            <button class="btn" type="submit"><a
+                class="custom-atag"
+                href="/search?languageToSearch={{this.languageTag}}"
+              ># {{this.languageTag}}</a></button>
+          </div>
+
+          <div class="row">
+            {{#each this.comments}}
+              <p class="custom-comment"><strong>{{this.commentator.username}} </strong> &nbsp; {{this.text}}</p>
+            {{/each}}
+          </div>
+          </div>
+        </div>
+      </div>
+      {{! Third column }}
+      <div class="col-sm-0 col-md-3"></div>
+    </div>
+  </div>
+{{/each}}
+
+
+
+{{/if}}
