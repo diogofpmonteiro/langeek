@@ -10,9 +10,9 @@
       <div class="col-sm-12 col-md-6">
         <div class="card my-4 w-100">
 
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center justify-content-between">
 
-          <a href="/{{this.author._id}}" class="custom-user-link w-50">
+          <a href="/{{this.author._id}}" class="custom-user-link">
             <h3 class="custom-username">
               <img
                 src="{{this.author.profilePictureURL}}"
@@ -21,7 +21,7 @@
                 class="custom-profile-picture"
               />{{this.author.username}}</h3>
           </a>
-              <form action="/add-favorite/{{this._id}}" method="POST" class="w-50 d-flex justify-content-end">
+              <form action="/add-favorite/{{this._id}}" method="POST">
                 <button type="submit" class="btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

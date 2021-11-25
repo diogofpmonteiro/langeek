@@ -8,12 +8,12 @@
       <div class="col-sm-0 col-md-3"></div>
       {{! Second column }}
       <div class="col-sm-12 col-md-6">
-        <div class="card my-5 w-100" style="width: 25rem">
+        <div class="card my-4 w-100" style="width: 25rem">
 
 
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center justify-content-between">
 
-          <a href="/{{author._id}}" class="custom-user-link w-50">
+          <a href="/{{author._id}}" class="custom-user-link">
             <h3 class="custom-username">
               <img
                 src="{{author.profilePictureURL}}"
@@ -23,7 +23,7 @@
               />{{author.username}}</h3>
           </a>
 
-            <form action="/remove-favorite/{{this._id}}" method="POST" class="w-50 d-flex justify-content-end">
+            <form action="/remove-favorite/{{this._id}}" method="POST">
             <button type="submit" class="btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
