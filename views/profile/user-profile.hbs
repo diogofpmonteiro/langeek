@@ -5,8 +5,13 @@
   <div class="container">
   <div class="row">
     {{!-- First column --}}
-    <div class="col-sm-3 col-md-3 d-flex justify-content-end">
+    <div class="col-sm-3 col-md-3 d-flex justify-content-end row">
       <img src="{{foundUser.profilePictureURL}}" alt="profile-picture" class="custom-pfp"/>
+          
+      <p><button type="button" class="btn"><a href="/{{foundUser._id}}/edit-user" class="custom-ahref">Edit profile</a></button></p>
+      <p><button type="button" class="btn" style="margin-left: 1em;"><a href="/favorite-posts" class="custom-ahref">Favorite Posts</a></button></p>
+      <p><button type="button" class="btn" style="margin-left: 1em;"><a href="/logout" class="custom-ahref">Logout</a></button></p>
+    
     </div>
     {{!-- Second column --}}
     <div class="col-sm-8 col-md-7">

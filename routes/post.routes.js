@@ -46,16 +46,6 @@ router.post("/delete-post/:postId", async (req, res) => {
 // GET /favorite-posts
 router.get("/favorite-posts", async (req, res) => {
   try {
-    //   const myFavoritePosts = await Favorite.find().populate({
-    //     path: "postFavorite",
-    //     model: "Post",
-    //     populate: {
-    //       path: "author",
-    //       model: "User",
-    //     },
-    //   });
-    //   console.log(myFavoritePosts[0]);
-
     const userWhoFavorited = await User.findById(req.session.user._id).populate({
       path: "favoritePosts",
       model: "Post",
@@ -83,6 +73,21 @@ router.post("/add-favorite/:postId", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+router.post('/remove-favorite/:postId', async (req, res) => {
+
+  try {
+    const postId = req.params.postId;
+    const userId = req.session.user._id;
+
+    await User.findByIdAndUpdate(userId, { $pull: { favoritePosts: postId } });
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
+
+
 });
 
 module.exports = router;
