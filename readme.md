@@ -52,6 +52,7 @@ User model :
   socialMediaLink: { type: String, required: true },
   profilePictureURL: { type: String, required: true },
   userPosts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+  favoritePosts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
 }
 ```
 
@@ -64,10 +65,26 @@ Posts model :
   description: { type: String, required: true },
   languageTag: { type: String, required: true },
   author: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  },
-  {
+  comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+},
+{
   timestamps: true,
-  }
+}
+
+```
+
+Comments model :
+
+```
+{
+  commentator: { type: Schema.Types.ObjectId, ref: "User" },
+  text: { type: String, required: true },
+},
+{
+  timestamps: true,
+}
+
+
 ```
 
 ## Backlog

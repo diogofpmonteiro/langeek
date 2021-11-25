@@ -8,9 +8,11 @@
       <div class="col-sm-0 col-md-3"></div>
       {{! Second column }}
       <div class="col-sm-12 col-md-6">
-        <div class="card my-5 w-100" style="width: 25rem">
+        <div class="card my-4 w-100">
 
-          <a href="/{{this.author._id}}" class="custom-user-link">
+          <div class="d-flex align-items-center">
+
+          <a href="/{{this.author._id}}" class="custom-user-link w-50">
             <h3 class="custom-username">
               <img
                 src="{{this.author.profilePictureURL}}"
@@ -19,14 +21,8 @@
                 class="custom-profile-picture"
               />{{this.author.username}}</h3>
           </a>
-
-          <h5 class="card-title">{{this.title}}</h5>
-          <img src="{{this.postPicture}}" class="card-img-top" alt="post picture" />
-          <div class="card-body">
-            <p class="card-text">
-              {{this.description}}
-              <form action="/add-favorite/{{this._id}}" method="POST">
-                <button class="btn">
+              <form action="/add-favorite/{{this._id}}" method="POST" class="w-50 d-flex justify-content-end">
+                <button type="submit" class="btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -45,7 +41,12 @@
                   </svg>
                 </button>
               </form>
-            </p>
+            </div>
+
+          <h5 class="card-title">{{this.title}}</h5>
+          <img src="{{this.postPicture}}" class="card-img-top" alt="post picture" />
+          <div class="card-body">
+            <p class="card-text">{{this.description}}</p>
             <button class="btn" type="submit"><a
                 class="custom-atag"
                 href="/search?languageToSearch={{this.languageTag}}"

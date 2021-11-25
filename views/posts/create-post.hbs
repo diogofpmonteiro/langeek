@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/stylesheets/style-user-profile.css" />
+
 <form class="row g-3" action="/create-post" method="POST" enctype="multipart/form-data">
   <div class="container">
     <div class="row">
@@ -5,7 +7,7 @@
       <div class="col-3"></div>
 
       {{! CENTER COLUMN }}
-      <div class="col-6">
+      <div class="col-sm-12 col-md-6">
         {{! Post title input }}
         <div class="col-md-12">
           <label class="form-label custom-form-input">Title</label>
@@ -36,7 +38,7 @@
 
         {{! Publish post button }}
         <div class="col-12 custom-form-input">
-          <button type="submit" class="btn btn-primary">Publish</button>
+          <button type="submit" class="btn btn-primary" style="margin-bottom: 4.2em;">Publish</button>
         </div>
 
         {{! END OF CENTER COLUMN IS THE NEXT /DIV }}
